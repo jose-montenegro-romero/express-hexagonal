@@ -4,9 +4,11 @@ import { UserCreate } from "../../User/application/UserCreate/UserCreate";
 import { UserEdit } from "../../User/application/UserEdit/UserEdit";
 import { UserDelete } from "../../User/application/UserDelete/UserDelete";
 import { PostgresUserRepository } from "../../../lib/User/infrastructure/PostgresUserRepository";
+import { InMemoryUserRepository } from "../../../lib/User/infrastructure/InMemoryUserRepository";
 import { env } from "./env";
 
-const userRepository = new PostgresUserRepository(env.DATABASE_URL);
+// const userRepository = new PostgresUserRepository(env.DATABASE_URL);
+const userRepository = new InMemoryUserRepository();
 
 export const ServiceContainer = {
   user: {
